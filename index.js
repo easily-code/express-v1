@@ -32,8 +32,8 @@ module.exports=function () {
   };
 
   app.get=function (url,fn) {
-  url=url.toLowerCase();
-  if (!routers['get']) routers['get']={};
+    url=url.toLowerCase();
+    if (!routers['get']) routers['get']={};
     routers['get'][url]=fn;
     if(url.indexOf(':')>0){
       regs[url]=pathToRegexp(url);
@@ -41,17 +41,17 @@ module.exports=function () {
   };
 
   app.post=function (url,fn) {
-  url=url.toLowerCase();
-  if (!routers['post']) routers['post']={};
+    url=url.toLowerCase();
+   if (!routers['post']) routers['post']={};
     routers['post'][url]=fn;
     if(url.indexOf(':')>0){
       regs[url]=pathToRegexp(url);
     }
   };
   app.start=function (p) {
-  require('http').createServer(app).listen(p,function(){
+    require('http').createServer(app).listen(p,function(){
     console.log('lisening on '+ p);
-  });
+    });
   };
   return app;
 };
